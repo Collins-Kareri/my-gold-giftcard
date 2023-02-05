@@ -40,7 +40,7 @@ function ShoppingCartModal({openModal}:ShoppingCartModalProps) {
 		<>
 			<div className="tw-fixed tw-top-0 tw-right-0 tw-w-full tw-h-full tw-bg-slate-900 tw-opacity-50 tw-z-10"></div>
 
-			<div className="tw-fixed tw-w-2/4 tw-h-screen tw-right-0 tw-z-20 tw-top-0 tw-text-slate-900 tw-bg-white">
+			<div className="tw-fixed tw-w-2/4 tw-h-screen tw-right-0 tw-z-20 tw-top-0 tw-text-slate-900 tw-bg-white lg:tw-w-[400px]">
 				{/**modal close button*/}
 				<div className="tw-border-b tw-border-b-slate-700 tw-flex tw-bg-white tw-justify-between tw-sticky tw-top-0 tw-w-full tw-right-0 tw-px-3 tw-py-4 tw-shadow-md tw-h-[80px] tw-items-center">
 					<div className="tw-w-fit tw-h-fit tw-flex tw-justify-between tw-bg-white tw-items-center">
@@ -73,9 +73,11 @@ function ShoppingCartModal({openModal}:ShoppingCartModalProps) {
 				</div>
 
 				{/**checkout */}
-				<div className="tw-border-b tw-border-b-slate-300 tw-flex tw-justify-centre tw-items-center tw-w-2/4 tw-right-0 tw-bottom-0 tw-h-fit tw-flex-col tw-border-t tw-border-t-slate-700 tw-shadow-md tw-fixed tw-py-5 tw-bg-white tw-rounded-t-2xl">
+				<div className="tw-border-b tw-border-b-slate-300 tw-flex tw-justify-centre tw-items-center tw-w-2/4 tw-right-0 tw-bottom-0 tw-h-fit tw-flex-col tw-border-t tw-border-t-slate-700 tw-shadow-md tw-fixed tw-py-5 tw-bg-white tw-rounded-t-2xl lg:tw-w-[400px]">
 					<p className="tw-font-bold tw-capitalize tw-mb-3">total $20</p>
-					<Link to="/checkout" className="tw-capitalize tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4">
+					<Link
+						to="/checkout"
+						className="tw-capitalize tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4">
 						checkout
 					</Link>
 				</div>
