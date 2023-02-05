@@ -16,6 +16,18 @@ interface ShoppingCartModalProps {
 }
 
 function ShoppingCartModal({ openModal, cart }: ShoppingCartModalProps) {
+
+	function getTotal(): number {
+		return cart.map((val) => val.price).reduce((a, b) => a + b);
+	}
+
+	const [total, setTotal] = useState<number>(getTotal());
+
+	useEffect(() => {
+		setTotal(getTotal());
+		return;
+	}, [cart]);
+
 	return (
 		<>
 			<div className="tw-fixed tw-top-0 tw-right-0 tw-w-full tw-h-full tw-bg-slate-900 tw-opacity-50 tw-z-10"></div>
@@ -45,10 +57,10 @@ function ShoppingCartModal({ openModal, cart }: ShoppingCartModalProps) {
 							<ProductCard
 								companyName={card.companyName}
 								price={card.price}
-								key={id}
+								key={card.id}
 								forCart={true}
 								className="tw-mb-5 tw-shadow-md"
-								id={id}
+								id={card.id}
 							/>
 						);
 					})}
@@ -56,7 +68,7 @@ function ShoppingCartModal({ openModal, cart }: ShoppingCartModalProps) {
 
 				{/**checkout */}
 				<div className="tw-border-b tw-border-b-slate-300 tw-flex tw-justify-centre tw-items-center tw-w-2/4 tw-right-0 tw-bottom-0 tw-h-fit tw-flex-col tw-border-t tw-border-t-slate-700 tw-shadow-md tw-fixed tw-py-5 tw-bg-white tw-rounded-t-2xl lg:tw-w-[400px]">
-					<p className="tw-font-bold tw-capitalize tw-mb-3">total $20</p>
+					<p className="tw-font-bold tw-capitalize tw-mb-3">total ${total}</p>
 					<Link
 						to="/checkout"
 						className="tw-capitalize tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4">

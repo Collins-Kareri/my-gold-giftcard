@@ -20,9 +20,13 @@ const cartSlice = createSlice({
 			state.value = [...state.value, action.payload];
 		},
 		remove: (state, action: PayloadAction<{ id: string }>) => {
-			state.value = (state.value as AcceptedCardProps[]).filter(
-				(item) => item.id === action.payload.id
+
+			const newVal = (state.value as AcceptedCardProps[]).filter(
+				(item) =>
+					item.id.toLowerCase().trim() !==
+					action.payload.id.toLowerCase().trim()
 			);
+			state.value = [...newVal];
 		},
 	},
 });

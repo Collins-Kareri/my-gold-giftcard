@@ -25,6 +25,7 @@ function ProductCard({
 	className,
 }: ProductCardProps) {
 	const dispatch = useAppDispatch();
+	const item = { companyName, price, id };
 	const cart = useAppSelector((state) => state.cart.value);
 
 	function checkIfInCart(id: string) {
@@ -37,10 +38,8 @@ function ProductCard({
 	}
 
 	function handleClick() {
-		const item = { companyName, price, id };
-
 		if (forCart) {
-			dispatch(removeFromCart({ id }));
+			dispatch(removeFromCart({ id: item.id }));
 
 			var notification: NotificationProps = {
 				identifier: id,
