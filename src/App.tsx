@@ -10,13 +10,17 @@ import SignUp from "~/pages/signup";
 import SellCards from "~/pages/sellCards";
 import Results from "~/pages/results";
 import CheckOut from "./pages/checkout";
+import store from "~/redux/store";
+import { Provider as StoreProvider } from "react-redux";
 
 function RootOfProject() {
-	return <>
-		<NavBar>
-			<Outlet/>
-		</NavBar>
-	</>
+	return (
+		<>
+			<NavBar>
+				<Outlet />
+			</NavBar>
+		</>
+	);
 }
 
 const router = createBrowserRouter([
@@ -27,39 +31,51 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "",
-				element:<Home/>
+				element: <Home />,
 			},
 			{
 				path: "user/login",
-				element:<Login/>
+				element: <Login />,
 			},
 			{
 				path: "user/signup",
-				element:<SignUp/>
+				element: <SignUp />,
 			},
 			{
 				path: "sell",
-				element:<SellCards/>
+				element: <SellCards />,
 			},
 			{
 				path: "search",
-				element:<Results/>
+				element: <Results />,
 			},
 			{
 				path: "checkout",
-				element:<CheckOut/>
-			}
-		]
-	}
+				element: <CheckOut />,
+			},
+		],
+	},
 ]);
 
-library.add(fas,fab,faMagnifyingGlass,faShoppingBasket,faUserLarge,faCaretDown,faXmark,faGoogle,faCaretLeft);
+library.add(
+	fas,
+	fab,
+	faMagnifyingGlass,
+	faShoppingBasket,
+	faUserLarge,
+	faCaretDown,
+	faXmark,
+	faGoogle,
+	faCaretLeft
+);
 
 function App() {
-  return (
-		<div className="App">
-			<RouterProvider router={router} />
-		</div>
+	return (
+		<StoreProvider store={store}>
+			<div className="App">
+				<RouterProvider router={router} />
+			</div>
+		</StoreProvider>
 	);
 }
 
