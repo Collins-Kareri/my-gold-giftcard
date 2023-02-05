@@ -70,7 +70,7 @@ function Notification({ type, title, message, identifier }: NotificationProps) {
 
 	return (
 		<section
-			className={`tw-w-[420px] tw-flex tw-justify-between tw-items-center tw-h-fit tw-bg-slate-50 tw-shadow-md tw-border-l-4 tw-px-6 tw-py-3 tw-text-slate-800 ${container}`}>
+			className={`tw-w-[420px] tw-flex tw-justify-between tw-items-center tw-h-fit tw-bg-slate-50 tw-shadow-md tw-border-l-4 tw-px-6 tw-py-3 tw-text-slate-800 tw-my-4 ${container}`}>
 			<span
 				className={` tw-text-white tw-rounded-full tw-w-9 tw-h-9 tw-flex tw-justify-center tw-items-center ${icon.bg_color}`}>
 				<FontAwesomeIcon icon={icon.myIcon} />
