@@ -39,6 +39,12 @@ function SignUp() {
 	return (
 		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-screen tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
 			<Logo />
+			{location.pathname === "/sell" ? (
+				<h1 className="tw-text-xl tw-my-6">Sign up to start selling</h1>
+			) : (
+				<></>
+			)}
+
 			<p>
 				Already have an account{" "}
 				<Link
