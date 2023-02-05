@@ -32,12 +32,14 @@ function ProductList() {
     return (
 			<div className="tw-mt-8 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6 lg:tw-grid-cols-4">
 				{cards.map((card) => {
+					const id = generateKey();
 					return (
 						<ProductCard
 							companyName={card.companyName}
 							price={card.price}
-							key={generateKey()}
+							key={id}
 							forCart={false}
+							id={id}
 						/>
 					);
 				})}

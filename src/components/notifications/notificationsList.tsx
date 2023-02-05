@@ -1,12 +1,23 @@
+import { useEffect } from "react";
 import Notification from "~/components/notifications/notification";
-import { useAppSelector } from "~/hooks/redux";
+import { useAppSelector, useAppDispatch } from "~/hooks/redux";
+import { remove } from "~/redux/slice/notificationsSlice";
 
 function NotificationList() {
 	const notifications = useAppSelector((state) => state.notification.value);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		if (notifications.length > 0) {
+			const { identifier } = notifications[0];
+			setTimeout(() => dispatch(remove({ id: identifier })), 2000);
+		}
+		return;
+	}, [notifications]);
 
 	return (
 		<div
-			className={`tw-absolute tw-w-full tw-h-fit tw-z-30 tw-px-6 tw-py-8 tw-flex tw-justify-end ${
+			className={`tw-fixed tw-w-full tw-h-fit tw-z-30 tw-px-6 tw-py-8 tw-flex tw-justify-end ${
 				notifications.length <= 0 ? "tw-hidden" : ""
 			}`}>
 			{notifications.map((notification) => {

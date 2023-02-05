@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductCardProps } from "~/components/product/productCard";
 
-interface AcceptedCardProps
+export interface AcceptedCardProps
 	extends Omit<ProductCardProps, "forCart" | "className"> {}
 
 interface CartState {
@@ -19,9 +19,9 @@ const cartSlice = createSlice({
 		add: (state, action: PayloadAction<AcceptedCardProps>) => {
 			state.value = [...state.value, action.payload];
 		},
-		remove: (state, action: PayloadAction<AcceptedCardProps>) => {
+		remove: (state, action: PayloadAction<{ id: string }>) => {
 			state.value = (state.value as AcceptedCardProps[]).filter(
-				(item) => item.id !== action.payload.id
+				(item) => item.id === action.payload.id
 			);
 		},
 	},

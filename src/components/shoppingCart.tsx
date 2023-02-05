@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductCard, { ProductCardProps } from "./product/productCard";
@@ -8,39 +8,14 @@ import {
 	add as notify,
 	NotificationProps,
 } from "~/redux/slice/notificationsSlice";
+import { AcceptedCardProps } from "~/redux/slice/cartSlice";
 
 interface ShoppingCartModalProps {
 	openModal: () => void;
+	cart: [] | AcceptedCardProps[];
 }
 
-function ShoppingCartModal({ openModal }: ShoppingCartModalProps) {
-	const cards: Omit<ProductCardProps, "id" | "forCart">[] = [
-		{
-			companyName: "netflix",
-			price: 20,
-		},
-		{
-			companyName: "amazon",
-			price: 50,
-		},
-		{
-			companyName: "target",
-			price: 5,
-		},
-		{
-			companyName: "walmart",
-			price: 28,
-		},
-		{
-			companyName: "amazon",
-			price: 10,
-		},
-		{
-			companyName: "target",
-			price: 20,
-		},
-	];
-
+function ShoppingCartModal({ openModal, cart }: ShoppingCartModalProps) {
 	return (
 		<>
 			<div className="tw-fixed tw-top-0 tw-right-0 tw-w-full tw-h-full tw-bg-slate-900 tw-opacity-50 tw-z-10"></div>
@@ -51,7 +26,7 @@ function ShoppingCartModal({ openModal }: ShoppingCartModalProps) {
 					<div className="tw-w-fit tw-h-fit tw-flex tw-justify-between tw-bg-white tw-items-center">
 						<span className="tw-capitalize tw-mr-2">Shopping cart</span>
 						<span className="tw-bg-emerald-400 tw-py-2 tw-px-4 tw-rounded-full">
-							6
+							{cart.length}
 						</span>
 					</div>
 					<FontAwesomeIcon
@@ -64,14 +39,16 @@ function ShoppingCartModal({ openModal }: ShoppingCartModalProps) {
 
 				{/**card styling */}
 				<div className="tw-h-[60%] tw-my-5 tw-overflow-auto tw-px-6 tw-py-3">
-					{cards.map((card) => {
+					{cart.map((card) => {
+						const id = generateKey();
 						return (
 							<ProductCard
 								companyName={card.companyName}
 								price={card.price}
-								key={generateKey()}
+								key={id}
 								forCart={true}
 								className="tw-mb-5 tw-shadow-md"
+								id={id}
 							/>
 						);
 					})}
@@ -99,6 +76,7 @@ function ShoppingCart() {
 	function openModal() {
 		if (cart.length > 0) {
 			setShoppingModalState(!shoppingModalState);
+			return;
 		} else {
 			const notification: NotificationProps = {
 				title: "cart is empty.",
@@ -110,6 +88,15 @@ function ShoppingCart() {
 			dispatch(notify(notification));
 		}
 	}
+
+	useEffect(() => {
+		if (cart.length <= 0 && shoppingModalState) {
+			setShoppingModalState(!shoppingModalState);
+		}
+
+		// if(){}
+		return;
+	}, [cart]);
 
 	return (
 		<>
@@ -131,7 +118,11 @@ function ShoppingCart() {
 					onClick={openModal}
 				/>
 			</span>
-			{shoppingModalState ? <ShoppingCartModal openModal={openModal} /> : <></>}
+			{shoppingModalState && cart.length > 0 ? (
+				<ShoppingCartModal openModal={openModal} cart={cart} />
+			) : (
+				<></>
+			)}
 		</>
 	);
 }

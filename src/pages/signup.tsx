@@ -1,9 +1,40 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Logo from "~/components/logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+function FullName() {
+	return (
+		<div className="tw-flex tw-w-full tw-relative tw-h-fit tw-mb-4 tw-justify-between">
+			<section className="tw-flex tw-flex-col tw-w-2/4 tw-mr-6">
+				<label htmlFor="first_name" className="tw-capitalize">
+					first name
+				</label>
+				<input
+					type={"first_name"}
+					placeholder="first name"
+					id="text"
+					className="tw-py-3 tw-px-3 tw-border tw-border-slate-600 main-transition focus:tw-shadow focus:tw-shadow-slate-500 focus:tw-ring-0 focus:tw-outline-none focus:tw-border focus:tw-border-slate-900"
+				/>
+			</section>
+
+			<section className="tw-flex tw-flex-col tw-w-2/4">
+				<label htmlFor="last_name" className="tw-capitalize">
+					last name
+				</label>
+				<input
+					type={"last_name"}
+					placeholder="last name"
+					id="text"
+					className="tw-py-3 tw-px-3 tw-border tw-border-slate-600 main-transition focus:tw-shadow focus:tw-shadow-slate-500 focus:tw-ring-0 focus:tw-outline-none focus:tw-border focus:tw-border-slate-900"
+				/>
+			</section>
+		</div>
+	);
+}
+
 function SignUp() {
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	return (
 		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-screen tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
@@ -29,6 +60,8 @@ function SignUp() {
 			<p className="tw-py-2">or</p>
 
 			<form className="tw-w-full">
+				{location.pathname === "/sell" ? <FullName /> : <></>}
+
 				<div className="tw-flex tw-flex-col tw-w-full tw-relative tw-h-fit tw-mb-4">
 					<label htmlFor="email" className="tw-capitalize">
 						email
