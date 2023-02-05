@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductCard, { ProductCardProps } from "./product/productCard";
 import generateKey from "~/utils/generateKey";
+import { useAppSelector, useAppDispatch } from "~/hooks/redux";
+import {
+	add as notify,
+	NotificationProps,
+} from "~/redux/slice/notificationsSlice";
 
-interface ShoppingCartModalProps{
-    openModal: () => void;
+interface ShoppingCartModalProps {
+	openModal: () => void;
 }
 
-function ShoppingCartModal({openModal}:ShoppingCartModalProps) {
+function ShoppingCartModal({ openModal }: ShoppingCartModalProps) {
 	const cards: Omit<ProductCardProps, "id" | "forCart">[] = [
 		{
 			companyName: "netflix",
@@ -88,9 +93,22 @@ function ShoppingCartModal({openModal}:ShoppingCartModalProps) {
 
 function ShoppingCart() {
 	const [shoppingModalState, setShoppingModalState] = useState(false);
+	const cart = useAppSelector((state) => state.cart.value);
+	const dispatch = useAppDispatch();
 
 	function openModal() {
-		setShoppingModalState(!shoppingModalState);
+		if (cart.length > 0) {
+			setShoppingModalState(!shoppingModalState);
+		} else {
+			const notification: NotificationProps = {
+				title: "cart is empty.",
+				message: "Please add items to cart to view it.",
+				identifier: generateKey(),
+				type: "info",
+			};
+
+			dispatch(notify(notification));
+		}
 	}
 
 	return (
