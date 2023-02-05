@@ -3,16 +3,26 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "~/components/logo";
 import SearchBar from "~/components/searchBar";
 import ShoppingCart from "~/components/shoppingCart";
-import UserLarge from "./userLarge";
+import User from "./user";
 
 interface NavBarProps extends React.PropsWithChildren {}
 
 function MyCta() {
 	return (
-		<section className="tw-text-slate-800 tw-flex tw-items-center tw-h-fit">
+		<section className="tw-text-slate-800 tw-flex tw-items-center tw-h-[40px]">
 			<ShoppingCart />
-			<UserLarge />
+			<User />
 		</section>
+	);
+}
+
+function MainNavBar() {
+	return (
+		<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-700 main-container tw-py-4 tw-sticky tw-top-[1px] tw-z-20 tw-bg-white tw-h-[80px]">
+			<Logo />
+			<SearchBar />
+			<MyCta />
+		</div>
 	);
 }
 
@@ -54,11 +64,7 @@ function NavBar({ children }: NavBarProps) {
 				className={`tw-relative tw-h-fit ${
 					handleWhetherToShow() ? "tw-invisible" : ""
 				} ${handleWhetherToShow() ? "tw-hidden" : ""}`}>
-				<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-700 main-container tw-py-4 tw-sticky tw-top-0 tw-z-20 tw-bg-white tw-h-fit">
-					<Logo />
-					<SearchBar />
-					<MyCta />
-				</div>
+				<MainNavBar />
 				<SecondaryNavBar />
 			</nav>
 			<main>{children}</main>
