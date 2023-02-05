@@ -50,7 +50,7 @@ function ShoppingCartModal({ openModal }: ShoppingCartModalProps) {
 				<div className="tw-border-b tw-border-b-slate-700 tw-flex tw-bg-white tw-justify-between tw-sticky tw-top-0 tw-w-full tw-right-0 tw-px-3 tw-py-4 tw-shadow-md tw-h-[80px] tw-items-center">
 					<div className="tw-w-fit tw-h-fit tw-flex tw-justify-between tw-bg-white tw-items-center">
 						<span className="tw-capitalize tw-mr-2">Shopping cart</span>
-						<span className="tw-bg-lime-400 tw-py-2 tw-px-4 tw-rounded-full">
+						<span className="tw-bg-emerald-400 tw-py-2 tw-px-4 tw-rounded-full">
 							6
 						</span>
 					</div>
@@ -113,12 +113,24 @@ function ShoppingCart() {
 
 	return (
 		<>
-			<FontAwesomeIcon
-				icon={"shopping-basket"}
-				size={"xl"}
-				className="tw-mr-4 tw-cursor-pointer"
-				onClick={openModal}
-			/>
+			<span className="tw-relative tw-w-fit">
+				{cart.length > 0 ? (
+					<FontAwesomeIcon
+						icon={"circle"}
+						className="tw-text-green-600 tw-absolute tw-right-2 -tw-top-1"
+						size={"xs"}
+					/>
+				) : (
+					<></>
+				)}
+
+				<FontAwesomeIcon
+					icon={"shopping-basket"}
+					size={"xl"}
+					className="tw-mr-4 tw-cursor-pointer"
+					onClick={openModal}
+				/>
+			</span>
 			{shoppingModalState ? <ShoppingCartModal openModal={openModal} /> : <></>}
 		</>
 	);
