@@ -6,11 +6,13 @@ function SignUp() {
 	const navigate = useNavigate();
 
 	return (
-		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-screen tw-w-11/12 tw-mx-auto">
+		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-screen tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
 			<Logo />
 			<p>
 				Already have an account{" "}
-				<Link to={"/user/login"} className="tw-underline tw-underline-offset-4 tw-cursor-pointer hover:tw-underline-offset-8 main-transition tw-font-bold">
+				<Link
+					to={"/user/login"}
+					className="tw-underline tw-underline-offset-4 tw-cursor-pointer hover:tw-underline-offset-8 main-transition tw-font-bold">
 					login
 				</Link>
 			</p>
