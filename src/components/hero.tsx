@@ -3,8 +3,8 @@ import SearchBar from "~/components/searchBar";
 
 function Hero() {
 	return (
-		<div className="tw-flex tw-flex-col tw-mb-6 tw-text-slate-900 tw-h-[80vh] tw-border-b-2 tw-border-slate-200 tw-justify-center main-container tw-w-full tw-items-center tw-relative">
-			<h1 className="tw-text-xl md:tw-text-2xl tw-mb-4 tw-font-bold">
+		<div className="tw-flex tw-flex-col tw-mb-6 tw-text-slate-800 tw-h-[80vh] tw-border-b-2 tw-border-slate-200 tw-justify-center main-container tw-w-full tw-items-center tw-relative">
+			<h1 className="tw-text-xl md:tw-text-2xl tw-mb-4 tw-font-bold tw-text-center">
 				Start shopping from our list of gift cards
 			</h1>
 			<p className="tw-text-lg md:tw-text-xl tw-mb-6 tw-font-normal tw-w-full md:tw-w-2/4 tw-text-center">
