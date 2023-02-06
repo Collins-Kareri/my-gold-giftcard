@@ -1,4 +1,4 @@
-import { useNavigate, NavigateFunction } from "react-router-dom";
+import { useNavigate, NavigateFunction, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Login from "~/pages/login";
 
@@ -27,8 +27,9 @@ function LoggedIn({ navigate }: { navigate: NavigateFunction }) {
 
 function CheckOut() {
 	const navigate = useNavigate();
+	const location = useLocation();
 
-	return <Login />;
+	return <LoggedIn navigate={navigate} />;
 }
 
 export default CheckOut;
