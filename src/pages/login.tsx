@@ -50,7 +50,7 @@ function LoginForm() {
 				/>
 			</div>
 
-			<div className="tw-flex tw-items-center tw-justify-start tw-mt-8 tw-border-t-2 tw-border-slate-200 tw-pt-4">
+			<div className="tw-flex tw-items-center tw-justify-start tw-my-8 tw-border-t-2 tw-border-slate-200 tw-pt-4">
 				<button
 					type="button"
 					className="tw-mr-4 tw-py-2 tw-px-4 hover:tw-bg-slate-200"
@@ -67,7 +67,7 @@ function LoginForm() {
 
 function Login() {
 	return (
-		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-screen tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
+		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-fit tw-w-11/12 lg:tw-w-2/4 tw-mx-auto tw-my-8">
 			<Logo />
 			<p>
 				Don't have an account{" "}

@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function FullName() {
 	return (
-		<div className="tw-flex tw-w-full tw-relative tw-h-fit tw-mb-4 tw-justify-between">
-			<section className="tw-flex tw-flex-col tw-w-2/4 tw-mr-6">
+		<div className="tw-flex tw-w-full tw-relative tw-h-fit tw-mb-4 tw-justify-between tw-flex-col md:tw-flex-row">
+			<section className="tw-flex tw-flex-col tw-w-full md:tw-w-2/4 tw-mr-6 tw-mb-4 md:tw-mb-0">
 				<label htmlFor="first_name" className="tw-capitalize">
 					first name
 				</label>
@@ -17,7 +17,7 @@ function FullName() {
 				/>
 			</section>
 
-			<section className="tw-flex tw-flex-col tw-w-2/4">
+			<section className="tw-flex tw-flex-col tw-w-full md:tw-w-2/4">
 				<label htmlFor="last_name" className="tw-capitalize">
 					last name
 				</label>
@@ -37,7 +37,7 @@ function SignUp() {
 	const location = useLocation();
 
 	return (
-		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-screen tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
+		<form className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-fit tw-my-8 tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
 			<Logo />
 			{location.pathname === "/sell" ? (
 				<h1 className="tw-text-xl tw-my-6">Sign up to start selling</h1>
@@ -92,7 +92,7 @@ function SignUp() {
 					/>
 				</div>
 
-				<div className="tw-flex tw-items-center tw-justify-start tw-pt-6">
+				<div className="tw-flex tw-items-center tw-justify-start tw-my-8 tw-border-t-2 tw-border-slate-200 tw-pt-4">
 					<button
 						type="button"
 						className="tw-mr-4 tw-py-2 tw-px-4 hover:tw-bg-slate-200"
@@ -104,7 +104,7 @@ function SignUp() {
 					</button>
 				</div>
 			</form>
-		</div>
+		</form>
 	);
 }
 

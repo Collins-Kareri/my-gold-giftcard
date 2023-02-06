@@ -37,7 +37,7 @@ const cards: Omit<ProductCardProps, "forCart">[] = [
 
 function ProductList() {
 	return (
-		<div className="tw-mt-8 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6 lg:tw-grid-cols-4">
+		<div className="tw-mt-8 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-14 lg:tw-grid-cols-3 xl:tw-grid-cols-4">
 			{cards.map((card) => {
 				return (
 					<ProductCard

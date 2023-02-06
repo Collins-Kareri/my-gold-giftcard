@@ -65,23 +65,24 @@ function ProductCard({
 
 	return (
 		<div
-			className={`tw-w-full tw-h-fit tw-border tw-border-slate-400 ${
+			className={`tw-w-full tw-h-fit tw-border tw-border-slate-200 tw-shadow-md tw-shadow-slate-400 ${
 				className ? className : ""
-			}`}>
-			<section className="tw-w-full tw-h-28 tw-flex tw-justify-center tw-items-center tw-border-b tw-border-b-slate-400 tw-rounded-3xl">
+			} tw-rounded-3xl tw-bg-slate-50`}>
+			<section className="tw-w-11/12 tw-mx-auto tw-mt-6 tw-h-40 tw-flex tw-justify-center tw-items-center tw-border tw-border-slate-400 tw-rounded-3xl tw-shadow-inner tw-shadow-slate-900 tw-bg-gradient-to-tr tw-from-slate-400 tw-opacity-30 tw-cursor-pointer">
 				<img
 					src={placeHolderImage}
 					alt="card placeholder image"
-					className="tw-w-[100px] tw-h-[80px]"
+					className="tw-w-[120px] tw-h-[100px] main-transition"
+					loading={"lazy"}
 				/>
 			</section>
-			<section className="tw-py-6 tw-px-4 tw-flex tw-flex-col tw-items-end">
-				<p className="tw-capitalize tw-mb-1">{companyName}</p>
-				<p className="tw-capitalize tw-mb-1">
+			<section className=" tw-w-11/12 tw-mx-auto tw-py-6 tw-px-4 tw-flex tw-flex-col tw-items-start">
+				<p className="tw-capitalize tw-my-1">{companyName}</p>
+				<p className="tw-capitalize tw-my-1 tw-text-lg">
 					price: <b>${price}</b>
 				</p>
 				<button
-					className="tw-capitalize tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4"
+					className="tw-capitalize tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4 tw-my-2 tw-bg-slate-50 tw-rounded-sm"
 					onClick={handleClick}>
 					{forCart ? "remove" : "add to cart"}
 				</button>
