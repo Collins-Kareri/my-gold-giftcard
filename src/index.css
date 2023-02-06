@@ -20,4 +20,16 @@
     .main-container{
         @apply tw-px-8 md:tw-px-12 tw-relative
     }
+
+    button{
+        @apply tw-capitalize
+    }
+
+    .secondary{
+        @apply tw-mr-4 tw-py-2 tw-px-4 hover:tw-bg-slate-200
+    }
+
+    .primary{
+        @apply tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4
+    }
 }
