@@ -1,31 +1,28 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Logo from "~/components/logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import OAuthOptions from "~/components/oAuthButtons";
+import InputContainer from "~/components/input";
+import ButtonContainer from "~/components/button";
 
 function FullName() {
 	return (
-		<div className="tw-flex tw-w-full tw-relative tw-h-fit tw-mb-4 tw-justify-between tw-flex-col md:tw-flex-row">
-			<section className="tw-flex tw-flex-col tw-w-full md:tw-w-2/4 tw-mr-6 tw-mb-4 md:tw-mb-0">
-				<label htmlFor="first_name" className="tw-capitalize">
-					first name
-				</label>
-				<input
-					type={"first_name"}
+		<div className="tw-flex tw-w-full tw-relative tw-h-fit tw-justify-between tw-flex-col md:tw-flex-row">
+			<section className="tw-flex tw-flex-col tw-w-full md:tw-w-2/4 tw-mr-6">
+				<InputContainer
+					label="first name"
+					id="first_name"
 					placeholder="first name"
-					id="text"
-					className="tw-py-3 tw-px-3 tw-border tw-border-slate-600 main-transition focus:tw-shadow focus:tw-shadow-slate-500 focus:tw-ring-0 focus:tw-outline-none focus:tw-border focus:tw-border-slate-900"
+					type="text"
 				/>
 			</section>
 
 			<section className="tw-flex tw-flex-col tw-w-full md:tw-w-2/4">
-				<label htmlFor="last_name" className="tw-capitalize">
-					last name
-				</label>
-				<input
-					type={"last_name"}
+				<InputContainer
+					label="last name"
+					id="last_name"
 					placeholder="last name"
-					id="text"
-					className="tw-py-3 tw-px-3 tw-border tw-border-slate-600 main-transition focus:tw-shadow focus:tw-shadow-slate-500 focus:tw-ring-0 focus:tw-outline-none focus:tw-border focus:tw-border-slate-900"
+					type="text"
 				/>
 			</section>
 		</div>
@@ -39,6 +36,7 @@ function SignUp() {
 	return (
 		<form className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-fit tw-my-8 tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
 			<Logo />
+
 			{location.pathname === "/sell" ? (
 				<h1 className="tw-text-xl tw-my-6">Sign up to start selling</h1>
 			) : (
@@ -56,52 +54,35 @@ function SignUp() {
 
 			<p className="tw-py-2">or</p>
 
-			<div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-				<p className="tw-font-bold tw-mb-2">signup with</p>
-				<div className="tw-border tw-border-slate-900 tw-w-fit tw-px-5 tw-py-3 tw-cursor-pointer tw-bg-slate-900 tw-text-slate-50 hover:tw-shadow-sm">
-					<FontAwesomeIcon icon={["fab", "google"]} />
-				</div>
-			</div>
+			<OAuthOptions headerTextContent="sign up with" />
 
 			<p className="tw-py-2">or</p>
 
 			<form className="tw-w-full">
 				{location.pathname === "/sell" ? <FullName /> : <></>}
 
-				<div className="tw-flex tw-flex-col tw-w-full tw-relative tw-h-fit tw-mb-4">
-					<label htmlFor="email" className="tw-capitalize">
-						email
-					</label>
-					<input
-						type={"email"}
-						placeholder="email"
-						id="email"
-						className="tw-py-3 main-transition focus:tw-shadow focus:tw-shadow-slate-500 focus:tw-ring-0 focus:tw-outline-none focus:tw-border focus:tw-border-slate-900"
-					/>
-				</div>
+				<InputContainer
+					label="email"
+					id="email"
+					placeholder="email"
+					type="email"
+				/>
 
-				<div className="tw-flex tw-flex-col">
-					<label htmlFor="password" className="tw-capitalize">
-						password
-					</label>
-					<input
-						type={"password"}
-						placeholder="password"
-						id="password"
-						className="tw-py-3 main-transition focus:tw-shadow focus:tw-shadow-slate-500 focus:tw-ring-0 focus:tw-outline-none focus:tw-border focus:tw-border-slate-900"
-					/>
-				</div>
+				<InputContainer
+					label="password"
+					type="password"
+					placeholder="password"
+					id="password"
+				/>
 
 				<div className="tw-flex tw-items-center tw-justify-start tw-my-8 tw-border-t-2 tw-border-slate-200 tw-pt-4">
-					<button
+					<ButtonContainer
+						styling={"secondary"}
+						textContent="cancel"
 						type="button"
-						className="tw-mr-4 tw-py-2 tw-px-4 hover:tw-bg-slate-200"
-						onClick={() => navigate("/")}>
-						Cancel
-					</button>
-					<button className="tw-capitalize tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4">
-						signup
-					</button>
+						onClick={() => navigate("/")}
+					/>
+					<ButtonContainer styling={"primary"} textContent="sign up" />
 				</div>
 			</form>
 		</form>

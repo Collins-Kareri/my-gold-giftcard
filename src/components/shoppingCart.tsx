@@ -10,6 +10,7 @@ import {
 } from "~/redux/slice/notificationsSlice";
 import { AcceptedCardProps } from "~/redux/slice/cartSlice";
 import MyGiftCardPlaceholder from "~/assets/giftCardPlaceHolder.svg";
+import ButtonContainer from "~/components/button";
 
 interface ShoppingCartModalProps {
 	openModal: () => void;
@@ -70,10 +71,8 @@ function ShoppingCartModal({ openModal, cart }: ShoppingCartModalProps) {
 				{/**checkout */}
 				<div className="tw-border-b tw-border-b-slate-300 tw-flex tw-justify-centre tw-items-center tw-w-11/12 md:tw-w-2/4 tw-right-0 tw-bottom-0 tw-h-fit tw-flex-col tw-border-t tw-border-t-slate-700 tw-shadow-md tw-fixed tw-py-5 tw-bg-white tw-rounded-t-2xl lg:tw-w-[400px]">
 					<p className="tw-font-bold tw-capitalize tw-mb-3">total ${total}</p>
-					<Link
-						to="/checkout"
-						className="tw-capitalize tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4">
-						checkout
+					<Link to="/checkout">
+						<ButtonContainer styling={"primary"} textContent={"checkout"} />
 					</Link>
 				</div>
 			</div>

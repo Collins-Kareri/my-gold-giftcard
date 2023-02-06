@@ -7,6 +7,7 @@ import {
 	add as notify,
 	NotificationProps,
 } from "~/redux/slice/notificationsSlice";
+import ButtonContainer from "~/components/button";
 
 export interface ProductCardProps {
 	companyName: string;
@@ -88,11 +89,12 @@ function ProductCard({
 				<p className="tw-capitalize tw-my-1 tw-text-lg">
 					price: <b>${price}</b>
 				</p>
-				<button
-					className="tw-capitalize tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4 tw-my-2 tw-bg-slate-50 tw-rounded-sm"
-					onClick={handleClick}>
-					{forCart ? "remove" : "add to cart"}
-				</button>
+
+				<ButtonContainer
+					styling={"primary"}
+					textContent={forCart ? "remove" : "add to cart"}
+					onClick={handleClick}
+				/>
 			</section>
 		</div>
 	);
