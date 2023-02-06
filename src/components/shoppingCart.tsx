@@ -107,13 +107,12 @@ function ShoppingCart() {
 			setShoppingModalState(!shoppingModalState);
 		}
 
-		// if(){}
 		return;
 	}, [cart]);
 
 	return (
 		<>
-			<span className="tw-relative tw-w-fit">
+			<span className="tw-relative tw-w-fit tw-mr-4">
 				{cart.length > 0 ? (
 					<FontAwesomeIcon
 						icon={"circle"}
@@ -127,7 +126,7 @@ function ShoppingCart() {
 				<FontAwesomeIcon
 					icon={"shopping-basket"}
 					size={"xl"}
-					className="tw-mr-4 tw-cursor-pointer"
+					className=" tw-cursor-pointer"
 					onClick={openModal}
 				/>
 			</span>

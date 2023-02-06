@@ -76,8 +76,8 @@ function Notification({ type, title, message, identifier }: NotificationProps) {
 				<FontAwesomeIcon icon={icon.myIcon} />
 			</span>
 			<div>
-				<h1 className="tw-font-medium">{title}</h1>
-				<p className="tw-text-slate-600">{message}</p>
+				<h1 className="tw-font-medium tw-capitalize">{title}</h1>
+				<p className="tw-text-slate-600 tw-capitalize">{message}</p>
 			</div>
 
 			<FontAwesomeIcon
