@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ProductCard, { ProductCardProps } from "./product/productCard";
+import ProductCard from "./product/productCard";
 import generateKey from "~/utils/generateKey";
 import { useAppSelector, useAppDispatch } from "~/hooks/redux";
 import {
@@ -9,6 +9,7 @@ import {
 	NotificationProps,
 } from "~/redux/slice/notificationsSlice";
 import { AcceptedCardProps } from "~/redux/slice/cartSlice";
+import MyGiftCardPlaceholder from "~/assets/giftCardPlaceHolder.svg";
 
 interface ShoppingCartModalProps {
 	openModal: () => void;
@@ -16,7 +17,6 @@ interface ShoppingCartModalProps {
 }
 
 function ShoppingCartModal({ openModal, cart }: ShoppingCartModalProps) {
-
 	function getTotal(): number {
 		return cart.map((val) => val.price).reduce((a, b) => a + b);
 	}
@@ -61,6 +61,7 @@ function ShoppingCartModal({ openModal, cart }: ShoppingCartModalProps) {
 								forCart={true}
 								className="tw-mb-5 tw-shadow-md"
 								id={card.id}
+								placeHolderImage={MyGiftCardPlaceholder}
 							/>
 						);
 					})}
