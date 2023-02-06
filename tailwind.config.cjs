@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        myFont: ['Poppins', "sans-serif"],
+        myFont: ["Raleway", "sans-serif"],
       },
       screens: {
         sm: '480px',
