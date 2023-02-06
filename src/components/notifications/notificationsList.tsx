@@ -17,7 +17,7 @@ function NotificationList() {
 
 	return (
 		<div
-			className={`tw-fixed tw-w-full tw-h-fit tw-z-30 tw-px-6 tw-py-8 tw-flex tw-justify-end tw-flex-col tw-items-end ${
+			className={`tw-fixed tw-w-full tw-h-fit tw-z-30 tw-px-6 tw-py-8 tw-flex tw-justify-center md:tw-justify-end tw-flex-col tw-items-center md:tw-items-end ${
 				notifications.length <= 0 ? "tw-hidden" : ""
 			}`}>
 			{notifications.map((notification) => {

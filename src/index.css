@@ -18,6 +18,6 @@
     }
 
     .main-container{
-        @apply tw-px-12
+        @apply tw-px-8 md:tw-px-12 tw-relative
     }
 }

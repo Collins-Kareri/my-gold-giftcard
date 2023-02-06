@@ -21,7 +21,7 @@ function MyCta({
 		setAlternativeSearchBarToggleStatus(!alternativeSearchBarToggleStatus);
 	}
 	return (
-		<section className="tw-text-slate-900 tw-flex tw-items-center tw-h-fit">
+		<section className="tw-text-slate-900 tw-flex tw-items-center">
 			<FontAwesomeIcon
 				icon={"magnifying-glass"}
 				size={"xl"}
@@ -36,7 +36,7 @@ function MyCta({
 
 function AlternativeSearchBar(props: React.ComponentPropsWithoutRef<"div">) {
 	return (
-		<div className="tw-w-full tw-py-4 tw-absolute tw-h-fit tw-flex tw-justify-center tw-top-[80px] tw-left-0 tw-z-40 tw-bg-white main-transition tw-border-b tw-border-slate-400">
+		<div className="tw-w-full tw-py-4 tw-absolute tw-h-[90px] tw-flex tw-justify-center tw-top-[80px] tw-left-0 tw-z-40 tw-bg-white main-transition tw-border-b tw-border-slate-400">
 			<span className="tw-block tw-w-11/12">
 				<SearchBar />
 			</span>
@@ -51,10 +51,10 @@ function MainNavBar() {
 	] = useState(false);
 
 	return (
-		<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-700 main-container tw-py-4 tw-bg-white tw-h-[80px]">
+		<div className="tw-flex tw-relative tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-700 main-container tw-py-4 tw-bg-white tw-h-[80px]">
 			{alternativeSearchBarToggleStatus ? <AlternativeSearchBar /> : <></>}
 			<Logo />
-			<div className="tw-w-fit tw-h-fit tw-hidden md:tw-block">
+			<div className="tw-w-fit tw-hidden md:tw-block">
 				<SearchBar />
 			</div>
 			<MyCta
@@ -69,10 +69,10 @@ function MainNavBar() {
 
 function SecondaryNavBar() {
 	return (
-		<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-400 main-container tw-py-4 tw-text-slate-700 tw-h-full tw-bg-white main-transition tw-sticky">
+		<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-400 main-container tw-py-4 tw-text-slate-700 tw-bg-white main-transition tw-h-[50px]">
 			<Link
 				to={"sell"}
-				className="tw-inline-block tw-uppercase tw-font-bold tw-text-lg tw-cursor-pointer hover:tw-underline hover:tw-underline-offset-8 hover:tw-underline-offset-slate-900 hover:tw-text-slate-900 main-transition">
+				className="tw-inline-block tw-uppercase tw-font-bold tw-cursor-pointer hover:tw-underline hover:tw-underline-offset-8 hover:tw-underline-offset-slate-900 hover:tw-text-slate-900 main-transition">
 				sell cards
 			</Link>
 		</div>
@@ -102,9 +102,9 @@ function NavBar({ children }: NavBarProps) {
 	return (
 		<>
 			<nav
-				className={`tw-sticky tw-top-[0px] tw-z-20 tw-h-fit ${
+				className={`tw-sticky tw-top-[0px] tw-z-20 ${
 					handleWhetherToShow() ? "tw-invisible" : ""
-				} ${handleWhetherToShow() ? "tw-hidden" : ""}`}>
+				} ${handleWhetherToShow() ? "tw-hidden" : ""} tw-h-[170px]`}>
 				<MainNavBar />
 				<SecondaryNavBar />
 			</nav>

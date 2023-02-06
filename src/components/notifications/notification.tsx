@@ -70,12 +70,12 @@ function Notification({ type, title, message, identifier }: NotificationProps) {
 
 	return (
 		<section
-			className={`tw-w-[420px] tw-flex tw-justify-between tw-items-center tw-h-fit tw-bg-slate-50 tw-shadow-md tw-border-l-4 tw-px-6 tw-py-3 tw-text-slate-800 tw-my-4 ${container}`}>
+			className={`tw-w-full md:tw-w-[420px] tw-flex tw-justify-between tw-items-center tw-h-fit tw-bg-slate-50 tw-shadow-md tw-border-l-4 tw-px-4 md:tw-px-6 tw-py-3 tw-text-slate-800 tw-my-4 ${container}`}>
 			<span
-				className={` tw-text-white tw-rounded-full tw-w-9 tw-h-9 tw-flex tw-justify-center tw-items-center ${icon.bg_color}`}>
+				className={` tw-text-white tw-rounded-full tw-w-fit tw-h-fit md:tw-flex tw-justify-center tw-items-center tw-p-2 tw-px-3 tw-mr-4 tw-hidden ${icon.bg_color}`}>
 				<FontAwesomeIcon icon={icon.myIcon} />
 			</span>
-			<div>
+			<div className="tw-mr-2">
 				<h1 className="tw-font-medium tw-capitalize">{title}</h1>
 				<p className="tw-text-slate-600 tw-capitalize">{message}</p>
 			</div>

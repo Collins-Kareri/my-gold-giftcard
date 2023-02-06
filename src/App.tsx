@@ -14,6 +14,7 @@ import {
 	faExplosion,
 	faCheckDouble,
 	faCircle,
+	faArrowDownLong,
 } from "@fortawesome/free-solid-svg-icons";
 import NavBar from "~/components/navbar";
 import ErrorPage from "~/pages/errorPage";
@@ -86,7 +87,8 @@ library.add(
 	faExclamation,
 	faExplosion,
 	faCheckDouble,
-	faCircle
+	faCircle,
+	faArrowDownLong
 );
 
 function App() {
