@@ -1,4 +1,3 @@
-import MyGiftCardPlaceholder from "~/assets/giftCardPlaceHolder.svg";
 import { useAppDispatch, useAppSelector } from "~/hooks/redux";
 import {
 	add as addToCart,
@@ -14,7 +13,7 @@ export interface ProductCardProps {
 	price: number;
 	id: string;
 	forCart: boolean;
-	className?: string;
+	placeHolderImage?: string;
 }
 
 function ProductCard({
@@ -23,7 +22,8 @@ function ProductCard({
 	id,
 	forCart,
 	className,
-}: ProductCardProps) {
+	placeHolderImage,
+}: ProductCardProps & React.ComponentPropsWithoutRef<"div">) {
 	const dispatch = useAppDispatch();
 	const item = { companyName, price, id };
 	const cart = useAppSelector((state) => state.cart.value);
@@ -70,7 +70,7 @@ function ProductCard({
 			}`}>
 			<section className="tw-w-full tw-h-28 tw-flex tw-justify-center tw-items-center tw-border-b tw-border-b-slate-400 tw-rounded-3xl">
 				<img
-					src={MyGiftCardPlaceholder}
+					src={placeHolderImage}
 					alt="card placeholder image"
 					className="tw-w-[100px] tw-h-[80px]"
 				/>

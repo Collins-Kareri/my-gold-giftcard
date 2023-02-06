@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "~/components/logo";
 import SearchBar from "~/components/searchBar";
@@ -18,7 +18,7 @@ function MyCta() {
 
 function MainNavBar() {
 	return (
-		<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-700 main-container tw-py-4 tw-sticky tw-top-[1px] tw-z-20 tw-bg-white tw-h-[80px]">
+		<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-700 main-container tw-py-4 tw-bg-white tw-h-[80px]">
 			<Logo />
 			<SearchBar />
 			<MyCta />
@@ -28,7 +28,7 @@ function MainNavBar() {
 
 function SecondaryNavBar() {
 	return (
-		<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-400 main-container tw-py-4 tw-text-slate-700 tw-h-full">
+		<div className="tw-flex tw-justify-between tw-items-center tw-w-full tw-border-b tw-border-slate-400 main-container tw-py-4 tw-text-slate-700 tw-h-full tw-bg-white main-transition tw-sticky">
 			<Link
 				to={"sell"}
 				className="tw-inline-block tw-uppercase tw-font-bold tw-text-lg tw-cursor-pointer hover:tw-underline hover:tw-underline-offset-8 hover:tw-underline-offset-slate-900 hover:tw-text-slate-900 main-transition">
@@ -61,7 +61,7 @@ function NavBar({ children }: NavBarProps) {
 	return (
 		<>
 			<nav
-				className={`tw-relative tw-h-fit ${
+				className={`tw-sticky tw-top-[0px] tw-z-20 tw-h-fit ${
 					handleWhetherToShow() ? "tw-invisible" : ""
 				} ${handleWhetherToShow() ? "tw-hidden" : ""}`}>
 				<MainNavBar />

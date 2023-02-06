@@ -1,5 +1,6 @@
 import ProductCard, { ProductCardProps } from "~/components/product/productCard";
 import generateKey from "~/utils/generateKey";
+import MyGiftCardPlaceholder from "~/assets/giftCardPlaceHolder.svg";
 
 const cards: Omit<ProductCardProps, "forCart">[] = [
 	{
@@ -45,6 +46,7 @@ function ProductList() {
 						key={card.id}
 						forCart={false}
 						id={card.id}
+						placeHolderImage={MyGiftCardPlaceholder}
 					/>
 				);
 			})}
