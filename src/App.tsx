@@ -22,7 +22,7 @@ import Home from "~/pages/home";
 import Login from "~/pages/login";
 import SignUp from "~/pages/signup";
 import SellCards from "~/pages/sellCards";
-import Results from "~/pages/results";
+import Results from "~/pages/searchResults";
 import CheckOut from "./pages/checkout";
 import NotificationList from "~/components/notifications/notificationsList";
 import store from "~/redux/store";
