@@ -29,12 +29,45 @@ function FullName() {
 	);
 }
 
-function SignUp() {
+function SignUpForm() {
 	const navigate = useNavigate();
+
+	return (
+		<form className="tw-w-full">
+			{location.pathname === "/sell" ? <FullName /> : <></>}
+
+			<InputContainer
+				label="email"
+				id="email"
+				placeholder="email"
+				type="email"
+			/>
+
+			<InputContainer
+				label="password"
+				type="password"
+				placeholder="password"
+				id="password"
+			/>
+
+			<div className="tw-flex tw-items-center tw-justify-start tw-my-8 tw-border-t-2 tw-border-slate-200 tw-pt-4">
+				<ButtonContainer
+					styling={"secondary"}
+					textContent="cancel"
+					type="button"
+					onClick={() => navigate("/")}
+				/>
+				<ButtonContainer styling={"primary"} textContent="sign up" />
+			</div>
+		</form>
+	);
+}
+
+function SignUp() {
 	const location = useLocation();
 
 	return (
-		<form className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-fit tw-my-8 tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
+		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-fit tw-my-8 tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
 			<Logo />
 
 			{location.pathname === "/sell" ? (
@@ -58,34 +91,8 @@ function SignUp() {
 
 			<p className="tw-py-2">or</p>
 
-			<form className="tw-w-full">
-				{location.pathname === "/sell" ? <FullName /> : <></>}
-
-				<InputContainer
-					label="email"
-					id="email"
-					placeholder="email"
-					type="email"
-				/>
-
-				<InputContainer
-					label="password"
-					type="password"
-					placeholder="password"
-					id="password"
-				/>
-
-				<div className="tw-flex tw-items-center tw-justify-start tw-my-8 tw-border-t-2 tw-border-slate-200 tw-pt-4">
-					<ButtonContainer
-						styling={"secondary"}
-						textContent="cancel"
-						type="button"
-						onClick={() => navigate("/")}
-					/>
-					<ButtonContainer styling={"primary"} textContent="sign up" />
-				</div>
-			</form>
-		</form>
+			<SignUpForm />
+		</div>
 	);
 }
 
