@@ -127,6 +127,7 @@ function ShoppingCart() {
 					size={"xl"}
 					className=" tw-cursor-pointer"
 					onClick={openModal}
+					title="shopping cart"
 				/>
 			</span>
 			{shoppingModalState && cart.length > 0 ? (

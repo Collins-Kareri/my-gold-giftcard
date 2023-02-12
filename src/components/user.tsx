@@ -28,6 +28,7 @@ function UserLarge() {
 				icon={"user-large"}
 				size={"xl"}
 				className="tw-cursor-pointer"
+				title="profile"
 				onClick={openModal}
 			/>
 			{openUserModal ? <UserModal /> : <></>}
