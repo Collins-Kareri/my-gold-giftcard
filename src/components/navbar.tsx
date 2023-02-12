@@ -82,13 +82,13 @@ function SecondaryNavBar() {
 function NavBar({ children }: NavBarProps) {
 	const location = useLocation();
 
-	function handleWhetherToShow() {
+	function handleWhetherNotToShow() {
 		const path = location.pathname.toLowerCase();
-
+		console.log(path);
 		switch (path) {
 			case "/user/login":
 				return true;
-			case "/user/signup":
+			case "/user/createaccount":
 				return true;
 			case "/sell":
 				return true;
@@ -103,8 +103,8 @@ function NavBar({ children }: NavBarProps) {
 		<>
 			<nav
 				className={`tw-sticky tw-top-[0px] tw-z-20 ${
-					handleWhetherToShow() ? "tw-invisible" : ""
-				} ${handleWhetherToShow() ? "tw-hidden" : ""} tw-h-[170px]`}>
+					handleWhetherNotToShow() ? "tw-invisible" : ""
+				} ${handleWhetherNotToShow() ? "tw-hidden" : ""} tw-h-[170px]`}>
 				<MainNavBar />
 				<SecondaryNavBar />
 			</nav>

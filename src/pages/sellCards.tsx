@@ -1,9 +1,7 @@
-import SignUp from "~/pages/signup";
+import CreateAccount from "~/pages/createAccount";
 
 function SellCards() {
-    return (
-        <SignUp/>
-    );
+	return <CreateAccount />;
 }
 
 export default SellCards;
