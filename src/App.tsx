@@ -20,7 +20,7 @@ import NavBar from "~/components/navbar";
 import ErrorPage from "~/pages/errorPage";
 import Home from "~/pages/home";
 import Login from "~/pages/login";
-import SignUp from "~/pages/signup";
+import CreateAccount from "~/pages/createAccount";
 import SellCards from "~/pages/sellCards";
 import Results from "~/pages/searchResults";
 import CheckOut from "./pages/checkout";
@@ -54,8 +54,8 @@ const router = createBrowserRouter([
 				element: <Login />,
 			},
 			{
-				path: "user/signup",
-				element: <SignUp />,
+				path: "user/createAccount",
+				element: <CreateAccount />,
 			},
 			{
 				path: "sell",
