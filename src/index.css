@@ -32,4 +32,12 @@
     .primary{
         @apply tw-w-fit tw-border tw-border-slate-800 tw-py-2 tw-px-4
     }
+
+    .text-divider{
+        @apply tw-relative tw-w-full tw-text-center tw-border-b-[1px] tw-leading-[0.1em] tw-border-slate-50 tw-border-opacity-80 tw-my-4
+    }
+
+    .text-divider>span{
+        @apply tw-bg-white tw-py-2 tw-px-2
+    }
 }
