@@ -5,7 +5,7 @@ interface ErrorProps {
 	statusText: string;
 }
 
-function errorInfo({ error }: { error: ErrorProps }) {
+function ErrorInfo({ error }: { error: ErrorProps }) {
 	return (
 		<p className="tw-text-slate-600">
 			<i>{`${error.status} ${error.statusText}`}</i>
@@ -20,7 +20,7 @@ function ErrorPage() {
 		<div className="tw-w-full tw-h-screen tw-flex tw-justify-center tw-items-center tw-flex-col tw-text-slate-900">
 			<h1 className="tw-text-2xl tw-mb-4 tw-font-bold">Oops!</h1>
 			<p className="tw-mb-2">Sorry, an unexpected error has occurred.</p>
-			{error.statusText ? <errorInfo error={error} /> : <></>}
+			{error.statusText ? <ErrorInfo error={error} /> : <></>}
 		</div>
 	);
 }
