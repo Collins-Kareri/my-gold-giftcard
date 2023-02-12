@@ -1,11 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "~/components/logo";
 import InputContainer from "~/components/input";
 import ButtonContainer from "~/components/button";
 import OAuthOptions from "~/components/oAuthButtons";
+import FormLink from "~/components/formLink";
+import ShowPasswordToggle from "~/components/ShowPasswordToggle";
 
 function LoginForm() {
 	const navigate = useNavigate();
+	const [showPassword, setShowPassword] = useState(false);
 
 	return (
 		<form className="tw-w-full">
@@ -19,12 +23,17 @@ function LoginForm() {
 			<InputContainer
 				label="password"
 				links="forgot password?"
-				type="password"
+				type={showPassword ? "text" : "password"}
 				placeholder="password"
 				id="password"
 			/>
 
-			<div className="tw-flex tw-items-center tw-justify-start tw-my-8 tw-border-t-2 tw-border-slate-200 tw-pt-4">
+			<ShowPasswordToggle
+				showPassword={showPassword}
+				setShowPassword={setShowPassword}
+			/>
+
+			<div className="tw-flex tw-items-center tw-justify-start tw-mt-8">
 				<ButtonContainer
 					styling={"secondary"}
 					textContent="cancel"
@@ -41,22 +50,23 @@ function Login() {
 	return (
 		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-fit tw-w-11/12 lg:tw-w-2/4 tw-mx-auto tw-my-8">
 			<Logo />
-			<p>
-				Don't have an account{" "}
-				<Link
-					to={"/user/signup"}
-					className="tw-underline tw-underline-offset-4 tw-cursor-pointer hover:tw-underline-offset-8 main-transition tw-font-bold">
-					signup
-				</Link>
-			</p>
 
-			<p className="tw-py-2">or</p>
+			<h1 className="tw-text-xl tw-my-6">Welcome back.</h1>
 
-			<OAuthOptions headerTextContent="login with" />
-
-			<p className="tw-py-2">or</p>
+			<FormLink
+				msg={"Don't have an account"}
+				to={"create account"}
+				path={"/user/createAccount"}
+				className="tw-mb-4"
+			/>
 
 			<LoginForm />
+
+			<p className="text-divider">
+				<span>or</span>
+			</p>
+
+			<OAuthOptions headerTextContent="login with" />
 		</div>
 	);
 }
