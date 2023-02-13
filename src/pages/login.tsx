@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "~/components/logo";
-import InputContainer from "~/components/input";
+import InputContainer from "~/components/form/input";
 import ButtonContainer from "~/components/button";
 import OAuthOptions from "~/components/oAuthButtons";
-import FormLink from "~/components/formLink";
-import ShowPasswordToggle from "~/components/ShowPasswordToggle";
+import FormLink from "~/components/form/formLink";
+import ShowPasswordToggle from "~/components/form/ShowPasswordToggle";
 import Heading from "~/components/heading";
-import FormContainer from "~/components/formContainer";
+import FormContainer from "~/components/form/formContainer";
 
 function LoginForm() {
 	const navigate = useNavigate();
