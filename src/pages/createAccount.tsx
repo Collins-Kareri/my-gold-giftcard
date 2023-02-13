@@ -6,6 +6,8 @@ import InputContainer from "~/components/input";
 import ButtonContainer from "~/components/button";
 import FormLink from "~/components/formLink";
 import ShowPasswordToggle from "~/components/ShowPasswordToggle";
+import Heading from "~/components/heading";
+import FormContainer from "~/components/formContainer";
 
 function FullName() {
 	return (
@@ -75,14 +77,16 @@ function CreateAccount() {
 	const location = useLocation();
 
 	return (
-		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-fit tw-my-8 tw-w-11/12 lg:tw-w-2/4 tw-mx-auto">
+		<FormContainer>
 			<Logo />
 
-			{location.pathname === "/sell" ? (
-				<h1 className="tw-text-xl tw-my-6">Create account to start selling</h1>
-			) : (
-				<h1 className="tw-text-xl tw-my-6">Create account</h1>
-			)}
+			<Heading
+				heading={
+					location.pathname === "/sell"
+						? "Create account to start selling"
+						: "Create account"
+				}
+			/>
 
 			<FormLink
 				msg={"Already have an account"}
@@ -98,7 +102,7 @@ function CreateAccount() {
 			</p>
 
 			<OAuthOptions headerTextContent="create account with" />
-		</div>
+		</FormContainer>
 	);
 }
 

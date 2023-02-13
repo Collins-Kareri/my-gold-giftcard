@@ -6,6 +6,8 @@ import ButtonContainer from "~/components/button";
 import OAuthOptions from "~/components/oAuthButtons";
 import FormLink from "~/components/formLink";
 import ShowPasswordToggle from "~/components/ShowPasswordToggle";
+import Heading from "~/components/heading";
+import FormContainer from "~/components/formContainer";
 
 function LoginForm() {
 	const navigate = useNavigate();
@@ -48,10 +50,10 @@ function LoginForm() {
 
 function Login() {
 	return (
-		<div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-h-fit tw-w-11/12 lg:tw-w-2/4 tw-mx-auto tw-my-8">
+		<FormContainer>
 			<Logo />
 
-			<h1 className="tw-text-xl tw-my-6">Welcome back.</h1>
+			<Heading heading="welcome back" />
 
 			<FormLink
 				msg={"Don't have an account"}
@@ -67,7 +69,7 @@ function Login() {
 			</p>
 
 			<OAuthOptions headerTextContent="login with" />
-		</div>
+		</FormContainer>
 	);
 }
 
